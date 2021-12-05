@@ -7,10 +7,39 @@
 
   @include tablet {
     padding-top: 60px;
-    grid-template-columns: repeat(auto-fill, 294px);
+    grid-template-columns: repeat(auto-fill, 274px);
   }
 
   @include desktop {
     grid-template-columns: repeat(auto-fill, 274px);
   }
+}
+.films__item {
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.films__item:hover {
+  box-shadow: 2px 2px 4px 4px rgb(0 0 0 / 50%);
+  transition: box-shadow 0.25s linear;
+}
+
+.film__img {
+  width: 100%;
+}
+.film__name {
+  color: black;
+  margin-left: 5px;
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+.film__box {
+  margin-left: 5px;
+  display: flex;
+}
+.film__info {
+  margin-top: 5px;
+  color: #ff6b08;
+  font-weight: 500;
 }
