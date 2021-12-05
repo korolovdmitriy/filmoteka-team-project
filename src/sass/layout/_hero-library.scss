@@ -1,0 +1,95 @@
+.hero__lib {
+  background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/my-library-mobile.jpg);
+  max-width: 767px;
+  height: 230px;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 121px;
+  padding-bottom: 65px;
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 230px),
+  screen and (min-resolution: 192dpi) and (min-width: 230px),
+  screen and (min-resolution: 2dppx) and (min-width: 230px) {
+  .hero__lib {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url(../images/my-library-mobile@2x.jpg);
+  }
+}
+
+// =====================BUTTON============================================
+.hero__lib-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero__btn-item:not(:last-child) {
+  margin-right: 19px;
+}
+.hero__lib-btn {
+  width: 136px;
+  height: 44px;
+  padding: 13px 38px;
+  border-radius: 5px;
+  border-color: #ffffff;
+
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 0.75;
+  text-transform: uppercase;
+  color: #ffffff;
+  
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    border: none;
+    background-color: #ff6b08;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+}
+
+// ===============================================TABLET====================================================
+
+
+@media screen and (min-width: 768px) {
+  .hero__lib {
+    max-width: 1023px;
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url(../images/my-library-tablet.jpg);
+  }
+  .hero__btn-item:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  screen and (min-resolution: 192dpi) and (min-width: 768px),
+  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  .hero__lib {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url(../images/my-library-tablet@2x.jpg);
+  }
+}
+
+// ===========================================DESCTOP====================================================
+
+
+@media screen and (min-width: 1024px) {
+  .hero__lib {
+    max-width: 1600px;
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url(../images/my-library-desctop.jpg);
+  }
+}
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
+  screen and (min-resolution: 192dpi) and (min-width: 1024px),
+  screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+  .hero__lib {
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+      url(../images/my-library-desctop@2x.jpg);
+  }
+}
