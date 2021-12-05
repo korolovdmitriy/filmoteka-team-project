@@ -13,27 +13,27 @@
 }
 
 // ==================LOGO======================
-.header__logo-text {
+.logo__text {
   display: none;
 }
 
 // ==================NAV========================
-.header__nav-list {
+.nav__list {
   display: flex;
   align-items: center;
 }
-.header__nav-item:not(:last-child) {
+.nav__item:not(:last-child) {
   margin-right: 39px;
 }
-.header__nav-link {
+.nav__link {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   text-transform: uppercase;
   color: #ffffff;
 }
-.header__nav-link:hover,
-.header__nav-link:focus {
+.nav__link:hover,
+.nav__link:focus {
   color: #ff6b08;
 }
 
@@ -46,10 +46,17 @@
   height: 3px;
   background: #ff6b08;
 }
-
+.current-library::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 69px;
+  height: 3px;
+  background: #ff6b08;
+}
 // ===================================TABLET===============================================
 @media screen and (min-width: 768px) {
-  .header__logo-text {
+  .logo__text {
     display: inline;
     font-weight: 500;
     font-size: 30px;
@@ -61,7 +68,7 @@
       color: #ff6b08;
     }
   }
-  .header__nav-ikon {
+  .nav__ikon {
     margin-right: 10px;
   }
 }
