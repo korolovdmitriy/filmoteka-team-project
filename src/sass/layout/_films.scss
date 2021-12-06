@@ -4,21 +4,18 @@
   justify-content: center;
   grid-gap: 30px;
   padding-top: 20px;
+  padding-bottom: 40px;
 
   @include tablet {
     padding-top: 60px;
-
-    grid-template-columns: repeat(auto-fill, 294px);
-
-    grid-template-columns: repeat(auto-fill, 274px);
-
+    padding-bottom: 50px;
+    grid-template-columns: repeat(auto-fill, 293px);
   }
 
   @include desktop {
     grid-template-columns: repeat(auto-fill, 274px);
   }
 }
-
 
 .films__item {
   cursor: pointer;
@@ -32,21 +29,47 @@
 
 .film__img {
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.film__link {
+  margin-bottom: 5px;
 }
 .film__name {
   color: black;
   margin-left: 5px;
   font-size: 12px;
-  margin-top: 10px;
+
   font-weight: 500;
 }
 .film__box {
   margin-left: 5px;
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin-bottom: 10px;
 }
 .film__info {
   margin-top: 5px;
   color: #ff6b08;
   font-weight: 500;
 }
-
+.rating {
+  width: 36px;
+  height: 16px;
+  background-color: #ff6b08;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .film__img {
+    width: 294px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .film__img {
+    width: 274px;
+  }
+}
