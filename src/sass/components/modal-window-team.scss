@@ -90,11 +90,6 @@
   @media screen and (min-width: 1024px) {
     margin-bottom: 50px;
   }
-
-  // &:hover,
-  // &:focus {
-  //   color: rgb(255, 107, 1);
-  // }
 }
 
 .team-list {
@@ -105,7 +100,7 @@
     grid-template-columns: repeat(3, 200px);
     justify-content: center;
     margin: 0 auto;
-    grid-gap: 30px;
+    grid-gap: 45px 30px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -121,6 +116,9 @@
     padding-top: 30px;
 
     color: #a39b9b;
+
+    transition-duration: 400ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 2);
 
     &:not(:first-child) {
       margin-top: 30px;
