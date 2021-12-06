@@ -1,0 +1,52 @@
+.footer {
+    height: 100px;
+    background-color: #f7f7f7;
+}
+@include tablet {
+    height: 77px;
+    
+}
+
+.footer__container {
+        padding: 0 20px; 
+}
+
+.footer__wrapper {
+    padding-top: 28px;
+    text-align: center;
+}
+@include tablet {
+display: flex;
+justify-content: center;
+}
+@include desktop {
+    display: flex;
+    justify-content: center; 
+}
+
+.footer__icon-heart {
+    display: inline-block;
+    width: 14px;
+    height: 12.75px;
+    fill: #ff6b08;
+    color: #545454;
+
+}
+
+.footer__text {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.14;
+    color: #545454;
+}
+@include desktop {
+    font-size: 16px;
+    line-height: 1.9;
+    
+}
+
+.footer__text-link {
+    color:#545454;
+}
+
+
