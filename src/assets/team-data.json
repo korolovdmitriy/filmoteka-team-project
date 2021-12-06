@@ -1,6 +1,6 @@
 [
   {
-    "avatar": "./images/madal-window-team/team-photo/korolov.jpg",
+    "avatar": "./images/modal-window-team/team-photo/korolov.jpg",
     "name": "Dmitro Korolov",
     "position": "Team Lead",
     "id": 1,
@@ -9,7 +9,7 @@
     "instagram":"https://www.instagram.com"
   },
     {
-    "avatar": "./images/madal-window-team/team-photo/chorna.jpg",
+    "avatar": "./images/modal-window-team/team-photo/chorna.jpg",
     "name": "Yevheniia Chorna",
     "position": "Scrum Master",
     "id": 2,
@@ -18,7 +18,7 @@
     "instagram":"https://www.instagram.com/4ornaja/"
   },
 {
-    "avatar": "./images/madal-window-team/team-photo/semenov.jpg",
+    "avatar": "./images/modal-window-team/team-photo/semenov.jpg",
     "name": "Serhii Semenov",
     "position": "Developer",
     "id": 3,
@@ -27,7 +27,7 @@
     "instagram":"https://www.instagram.com/serhii.s.o/"
   },
   {
-    "avatar": "./images/madal-window-team/team-photo/Vlad.jpg",
+    "avatar": "./images/modal-window-team/team-photo/Vlad.jpg",
     "name": "Vladyslav Tykhovskyi",
     "position": "Developer",
     "id": 4,
@@ -36,7 +36,7 @@
     "instagram":"https://www.instagram.com/v_tykhovskyi/"
   },
   {
-    "avatar": "./images/madal-window-team/team-photo/kal4enko.jpg",
+    "avatar": "./images/modal-window-team/team-photo/kal4enko.jpg",
     "name": "Natalia Kalchenko",
     "position": "Developer",
     "id": 5,
@@ -45,7 +45,7 @@
     "instagram":"https://www.instagram.com/nataliakal4enko/"
   },    
     {
-    "avatar": "./images/madal-window-team/team-photo/tomilov.jpg",
+    "avatar": "./images/modal-window-team/team-photo/tomilov.jpg",
     "name": "Dmitro Tomilow",
     "position": "Developer",
     "id": 6,
@@ -54,7 +54,7 @@
     "instagram":"https://www.instagram.com/dimantomilow/"
   },
     {
-    "avatar": "./images/madal-window-team/team-photo/zhokhova.jpg",
+    "avatar": "./images/modal-window-team/team-photo/zhokhova.jpg",
     "name": "Olha Zhokhova",
     "position": "Developer",
     "id": 7,
@@ -63,7 +63,7 @@
     "instagram":"https://www.instagram.com/ol.zhokhova/"
   },
         {
-    "avatar": "./images/madal-window-team/team-photo/suvorov.jpg",
+    "avatar": "./images/modal-window-team/team-photo/suvorov.jpg",
     "name": "Александр Суворов",
     "position": "Developer",
     "id": 8,
@@ -72,7 +72,7 @@
     "instagram":""
   },
     {
-    "avatar": "./images/madal-window-team/team-photo/nikitenko.jpg",
+    "avatar": "./images/modal-window-team/team-photo/nikitenko.jpg",
     "name": "Nikita Nikitenko",
     "position": "Developer",
     "id": 9,
@@ -82,7 +82,7 @@
   },
 
     {
-    "avatar": "./images/madal-window-team/team-photo/Ruzhytskyi.jpg",
+    "avatar": "./images/modal-window-team/team-photo/Ruzhytskyi.jpg",
     "name": "Dmytro Ruzhytskyi",
     "position": "Developer",
     "id": 10,
