@@ -1,7 +1,7 @@
 [
   {
     "avatar": "./images/madal-window-team/team-photo/korolov.jpg",
-    "name": "Дмитрий Королёв",
+    "name": "Dmitro Korolov",
     "position": "Team Lead",
     "id": 1,
     "github": "https://github.com/korolovdmitriy",
@@ -10,7 +10,7 @@
   },
     {
     "avatar": "./images/madal-window-team/team-photo/chorna.jpg",
-    "name": "Евгения Чёрная",
+    "name": "Yevheniia Chorna",
     "position": "Scrum Master",
     "id": 2,
     "github": "https://github.com/ChornaEva",
@@ -19,7 +19,7 @@
   },
 {
     "avatar": "./images/madal-window-team/team-photo/semenov.jpg",
-    "name": "Александр Семёнов",
+    "name": "Serhii Semenov",
     "position": "Developer",
     "id": 3,
     "github": "https://github.com/SerhiiSO",
@@ -28,7 +28,7 @@
   },
   {
     "avatar": "./images/madal-window-team/team-photo/Vlad.jpg",
-    "name": "Владислав Тиховский",
+    "name": "Vladyslav Tykhovskyi",
     "position": "Developer",
     "id": 4,
     "github": "https://github.com/vlad2021-pro?tab=repositories",
@@ -37,7 +37,7 @@
   },
   {
     "avatar": "./images/madal-window-team/team-photo/kal4enko.jpg",
-    "name": "Наталья Кальченко",
+    "name": "Natalia Kalchenko",
     "position": "Developer",
     "id": 5,
     "github": "https://github.com/NataliGoIt",
@@ -46,7 +46,7 @@
   },    
     {
     "avatar": "./images/madal-window-team/team-photo/tomilov.jpg",
-    "name": "Дмитрий Томилов",
+    "name": "Dmitro Tomilow",
     "position": "Developer",
     "id": 6,
     "github": "https://github.com/dimatomilow?tab=repositories",
@@ -55,7 +55,7 @@
   },
     {
     "avatar": "./images/madal-window-team/team-photo/zhokhova.jpg",
-    "name": "Ольга Жохова",
+    "name": "Olha Zhokhova",
     "position": "Developer",
     "id": 7,
     "github": "https://github.com/olhazhokhova",
@@ -73,7 +73,7 @@
   },
     {
     "avatar": "./images/madal-window-team/team-photo/nikitenko.jpg",
-    "name": "Никита Никитенко",
+    "name": "Nikita Nikitenko",
     "position": "Developer",
     "id": 9,
     "github": "https://github.com/Nikita856294",
@@ -83,7 +83,7 @@
 
     {
     "avatar": "./images/madal-window-team/team-photo/Ruzhytskyi.jpg",
-    "name": "Дмитрий Рыжицкий",
+    "name": "Dmytro Ruzhytskyi",
     "position": "Developer",
     "id": 10,
     "github": "https://github.com/dmitruz",
