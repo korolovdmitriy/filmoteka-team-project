@@ -19,9 +19,10 @@
 
   width: 40px;
   height: 40px;
-  border: 1px;
+  border: none;
   background-color: transparent;
-  fill: #a39b9b;
+  fill: #ffffff;
+  // box-shadow: 0 0 15px rgba(255, 107, 1, 0.9), 0 0 10px rgba(255, 255, 255, 0.5);
   cursor: pointer;
 
   transition-property: fill;
