@@ -55,3 +55,25 @@ function showTeamList(teamData) {
 };
 
 showTeamList(teamData);
+
+// const footerNode = document.querySelector(".footer");
+// console.log(footerNode);
+
+// const modalWindowTeam = document.querySelector(".backdrop");
+// console.log(modalWindowTeam);
+
+// footerNode.addEventListener("click", event => {
+//   modalWindowTeam.classList.toggle("is-hidden");
+// });
+
+const openModalBtn = document.querySelector('[data-modal-open]');
+const closeModalBtn = document.querySelector('[data-modal-close]');
+const teamModal = document.querySelector('[data-modal]');
+
+openModalBtn.addEventListener('click', toggleModal);
+closeModalBtn.addEventListener('click', toggleModal);
+
+function toggleModal() {
+  event.preventDefault();
+  teamModal.classList.toggle('is-hidden');
+}
