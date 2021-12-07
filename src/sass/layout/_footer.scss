@@ -18,10 +18,12 @@
 @include tablet {
 display: flex;
 justify-content: center;
+padding-top: 10px;
 }
 @include desktop {
     display: flex;
     justify-content: center; 
+    padding-top: 10px;
 }
 
 .footer__icon-heart {
