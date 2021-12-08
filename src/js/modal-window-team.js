@@ -1,5 +1,3 @@
-// import teamData from "../assets/team-data.json";
-
 // import { teamData } from "../js/team-data";
 // console.log(teamData);
 
