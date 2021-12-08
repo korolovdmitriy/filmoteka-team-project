@@ -1,11 +1,12 @@
 body {
   //   font-family: var(--primary-font);
   font-weight: 300;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
-  @media screen and (min-width: 1444px) {
-    font-size: 18px;
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 
 * {
