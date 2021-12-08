@@ -11,4 +11,4 @@ function e(){const e=document.querySelector(".films"),t=document.createElement("
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/modal-film-card.js"),require("./js/modal-window-team.js"),require("./js/team-data.js"),require("./js/spiner");
 },{"./sass/main.scss":"clu1","./js/modal-film-card.js":"MzUv","./js/modal-window-team.js":"OctN","./js/team-data.js":"RDq6","./js/spiner":"eYPI"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-team-project/src.1d71df72.js.map
+//# sourceMappingURL=/filmoteka-team-project/src.258eac4e.js.map
