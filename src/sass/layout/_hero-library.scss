@@ -25,9 +25,7 @@
   justify-content: center;
   align-items: center;
 }
-.hero__btn-item:not(:last-child) {
-  margin-right: 19px;
-}
+
 .hero__lib-btn {
   width: 136px;
   height: 44px;
@@ -53,6 +51,14 @@
     outline: 0 none;
     background-color: #ff6b08;
     box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+
+  &:not(:last-child) {
+    margin-right: 19px;
+  }
+
+  &.active {
+    pointer-events: none;
   }
 }
 
