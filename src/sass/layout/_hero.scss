@@ -6,10 +6,13 @@
       url(../images/home-mobile2x.jpg);
   }
 }
+.hero__background{
+  background-color: rgba(8, 8, 12, 0.91);
+}
 .hero {
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
     url(../images/home-mobile.jpg);
-  max-width: 767px;
+  max-width: 320px;
   height: 230px;
   background-size: cover;
   background-position: center;
@@ -64,16 +67,16 @@ margin-right: auto;
 margin-left: auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 321px) {
   .hero {
-    max-width: 1023px;
+    max-width: 768px;
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url(../images/home-tablet.jpg);
   }
 }
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-  screen and (min-resolution: 192dpi) and (min-width: 768px),
-  screen and (min-resolution: 2dppx) and (min-width: 768px) {
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 321px),
+  screen and (min-resolution: 192dpi) and (min-width: 321px),
+  screen and (min-resolution: 2dppx) and (min-width: 321px) {
   .hero {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url(../images/home-tablet@2x.jpg);
@@ -83,16 +86,16 @@ margin-left: auto;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 769px) {
   .hero {
-    max-width: 1600px;
+    max-width: 1024px;
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url(../images/home-desctop.jpg);
   }
 }
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
-  screen and (min-resolution: 192dpi) and (min-width: 1024px),
-  screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 769px),
+  screen and (min-resolution: 192dpi) and (min-width: 769px),
+  screen and (min-resolution: 2dppx) and (min-width: 769px) {
   .hero {
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url(../images/home-desctop@2x.jpg);
