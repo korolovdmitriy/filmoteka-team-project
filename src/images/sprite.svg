@@ -17,5 +17,11 @@
 <symbol id="icon-x_cross" viewBox="0 0 32 32">
 <path d="M26.707 6.707l-1.414-1.414-9.293 9.293-9.293-9.293-1.414 1.414 9.293 9.293-9.293 9.293 1.414 1.414 9.293-9.293 9.293 9.293 1.414-1.414-9.293-9.293 9.293-9.293z"></path>
 </symbol>
+<symbol id="icon-Vector-1" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4" d="M2 2l28 28"></path>
+</symbol>
+<symbol id="icon-Vector-2" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4" d="M2 30l28-28"></path>
+</symbol>
 </defs>
 </svg>
