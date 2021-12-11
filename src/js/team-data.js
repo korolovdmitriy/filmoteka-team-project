@@ -1,15 +1,15 @@
 export const teamData= [
   {
-    avatar: "./images/modal-window-team/team-photo/korolov.jpg",
+    avatar: "korolov.jpg",
     name: "Dmitro Korolov",
     position: "Team Lead",
     id: 1,
     github: "https://github.com/korolovdmitriy",
-    githubIcon: "./images/modal-window-team/sprite.svg#icon-github",
+    githubIcon: "../images/modal-window-team/sprite.svg#icon-github",
     linkedin:"https://www.linkedin.com/in/dmitro-korolov/",
     linkedinIcon: "./images/modal-window-team/sprite.svg#icon-linkedin",
     instagram:"https://www.instagram.com",
-    instagramIcon: "./images/modal-window-team/sprite.svg#icon-instagram"
+    instagramIcon: "../images/modal-window-team/sprite.svg#icon-instagram"
   },
     {
     avatar: "./images/modal-window-team/team-photo/chorna.jpg",
