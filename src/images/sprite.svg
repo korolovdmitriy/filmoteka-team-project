@@ -34,9 +34,14 @@
 <path fill="none"   stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 22.667h6.667"></path>
 <path fill="none"   stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M22.667 9.333h6.667"></path>
 </symbol>
-<symbol id="film-card-close" viewBox="0 0 32 32">
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
+<symbol id="icon-x_cross" viewBox="0 0 32 32">
+<path d="M26.707 6.707l-1.414-1.414-9.293 9.293-9.293-9.293-1.414 1.414 9.293 9.293-9.293 9.293 1.414 1.414 9.293-9.293 9.293 9.293 1.414-1.414-9.293-9.293 9.293-9.293z"></path>
+</symbol>
+<symbol id="icon-Vector-1" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4" d="M2 2l28 28"></path>
+</symbol>
+<symbol id="icon-Vector-2" viewBox="0 0 32 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="4" d="M2 30l28-28"></path>
 </symbol>
 </defs>
 </svg>
