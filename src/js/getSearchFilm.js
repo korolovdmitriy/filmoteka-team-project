@@ -6,13 +6,12 @@ const refs = {
   heroButton: document.querySelector('.hero__button'),
   error: document.querySelector('.text-error'),
 };
-let genre = [];
 
 refs.heroButton.addEventListener('click', onClick);
 
 function onClick(e) {
-  const query = refs.inputHero.value;
-  if (query === '') {
+  const queryValue = refs.inputHero.value;
+  if (queryValue === '') {
     return refs.error.classList.remove('.visually-hidden');
   }
   refs.error.classList.add('.visually-hidden');
