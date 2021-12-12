@@ -51,9 +51,10 @@ export function onFilmCardClick(genre, popularity, original, title, post, descr,
     </div>`
         ,{
         onShow:(instance)=>{
-            window.addEventListener('keydown', onKeyboardClick)
-            function onKeyboardClick(event){
-                if (event.code === 27){
+                window.addEventListener('keydown', onKeyboardClick)
+                        
+                function onKeyboardClick(event) {
+                if (event.code === 'Escape'){
                     instance.close();
                     window.removeEventListener('keydown', onKeyboardClick);
                 }
