@@ -3,14 +3,30 @@ import * as basicLightbox from 'basiclightbox'
 import axios from 'axios';
 const API_KEY = 'cfdb2a8aab50d545dc8a1d0938de62d8';
 const BASE_URL = 'https://api.themoviedb.org/3';
+import { fetchMovies } from './apiService';
 
 
 
-const cardEl = document.querySelector('.films__list')
-cardEl.addEventListener('click', onFilmCardClick)
+const cardEl = document.querySelector('.films__list');
+cardEl.addEventListener('click', onFilmCardClick);
 
-export function onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes){
-    // event.preventDefault();
+let genre, popularity, original, title, post, descr, vote, votes;
+ 
+const filmId = 580489;
+fetchMovies(filmId).then(data => {
+    title = data.title;
+    post = data.poster_path;
+    vote = data.vote_average;
+    votes = data.vote_count;
+    descr = data.overview;
+    original = data.original_title;
+    popularity = data.popularity;
+    genre = data.genres.map(el => el.name).join(', ');
+    console.log(data.backdrop_path);
+});
+
+
+function onFilmCardClick(){
     const instance = basicLightbox.create(`
     <div class="modal">
         <svg class="modal__close-btn">
@@ -67,21 +83,21 @@ export function onFilmCardClick(genre, popularity, original, title, post, descr,
     instance.show();
 }
 
-function getFilm(movieId) {
-    const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
-    return axios.get(url);}
+// function getFilm(movieId) {
+//     const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+//     return axios.get(url);}
 
-    getFilm(35384).then(res=>{
-        console.log(res.data);
-        const title = res.data.title;
-        const post = res.data.poster_path;
-        const vote = res.data.vote_average;
-        const votes = res.data.vote_count;
-        const descr = res.data.overview;
-        const original = res.data.original_title;
-        const popularity = res.data.popularity;
-        const genre = res.data.genres.map(el => el.name).join(', ');
-        // onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes);
+//     getFilm(35384).then(res=>{
+//         // console.log(res.data);
+//         const title = res.data.title;
+//         const post = res.data.poster_path;
+//         const vote = res.data.vote_average;
+//         const votes = res.data.vote_count;
+//         const descr = res.data.overview;
+//         const original = res.data.original_title;
+//         const popularity = res.data.popularity;
+//         const genre = res.data.genres.map(el => el.name).join(', ');
+//         // onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes);
         
-        })
+//         })
         
