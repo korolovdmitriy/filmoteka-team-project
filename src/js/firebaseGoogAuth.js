@@ -1,6 +1,15 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
- const firebaseConfig = {
+import firebase from 'firebase/app';
+import refs from '.refs.js';
+import 'firebase/database';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+
+
+   // Initialize Firebase
+
+   const firebaseConfig = {
     apiKey: "AIzaSyD1x3_R3WF-GvGQJFIxkseHeV15qsZ1TJ0",
     authDomain: "authentication-filmoteka.firebaseapp.com",
     databaseURL: "https://authentication-filmoteka-default-rtdb.europe-west1.firebasedatabase.app",
@@ -12,25 +21,78 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/
 
   firebase.initializeApp(firebaseConfig);
 
-  const login = document.getElementById('signin').addEventListener('click', signinUser);
-  const logout = document.getEleventNyId('signout').addEventListener('click', signoutUser);
+export default class Auth {
+constructor() {
+  this.auth = firebase.auth();
+  this.db = firebase.firestore();
+}
 
-  const provider = new GoogleAuthProvider();
+openModal() {
+  refs.loginModal.classList.remove('is-hidden');
+  refs.logForm.style.display = 'block';
+  refs.regForm.style.display = 'none';
+}
 
-  function signinUser() {
-      const googleAuthProvider = new firebase.auth.GoogleAuthProvider;
-      firebase.auth().signInWithPopup(googleAuthProvider)
-      .then(function (data){
-          console.log(data)
-          document.getElementById('signin').classList.add('signOut');
-          document.getElementById('signout').classList.add('signIn');
-          document.getElementById('googleUser').style.display = "block";
+closedModal() {
+  refs.loginModal.classList.add('is-hidden');
+}
 
-          renderGoogleUser(data);
-      })
-
-      .catch(function(error) {
-          console.log(error) 
-          })
-
+modalSwitch() {
+  if ((refs.regForm.style.display = 'block')) {
+    refs.logForm.style.display = 'none';
   }
+}
+
+registeringWithEmailAndPassword(e) {
+  e.preventDefault();
+  const email = refs.regForm.querySelector('#reg-email').value;
+  const password = refs.regForm.querySelector('#reg-password').value;
+
+  this.auth
+    .createUserWithEmailAndPassword(email, password)
+    .then(cred => {
+      return firebase.firestore().collection('users').doc(cred.user.uid).set({
+        watched: [],
+        queue: [],
+      });
+    })
+    .then(() => {
+      this.closedModal();
+    });
+}
+
+authWithMailAndPassword(e) {
+  e.preventDefault();
+  const email = refs.logForm.querySelector('#log-email').value;
+  const password = refs.logForm.querySelector('#log-password').value;
+  this.auth.signInWithEmailAndPassword(email, password).then(() => {
+    this.closedModal();
+  });
+}
+logout(e) {
+  e.preventDefault();
+  this.auth.signOut();
+  refs.movieList.innerHTML = '';
+  document.location.reload();
+}
+
+setupLoginBtn(user) {
+  if (user) {
+    refs.loginBtn.style.display = 'none';
+    refs.logoutBtn.style.display = 'block';
+  } else {
+    refs.loginBtn.style.display = 'block';
+    refs.logoutBtn.style.display = 'none';
+  }
+}
+
+init() {
+  refs.logoutBtn.addEventListener('click', this.logout.bind(this));
+  refs.loginLink.addEventListener('click', this.modalSwitch.bind(this));
+  refs.createLink.addEventListener('click', this.modalSwitch.bind(this));
+  refs.closeBtn.addEventListener('click', this.closedModal.bind(this));
+  refs.loginBtn.addEventListener('click', this.openModal.bind(this));
+  refs.regForm.addEventListener('submit', this.registeringWithEmailAndPassword.bind(this));
+  refs.logForm.addEventListener('submit', this.authWithMailAndPassword.bind(this));
+}
+}

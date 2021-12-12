@@ -4,4 +4,6 @@ import "./js/modal-window-team.js"
 import "./js/team-data.js"
 import './js/spiner';
 import './js/pagination.js';
-import './js/firebaseGoogAuth';
+import './js/firebaseGoogAuth.js';
+import './js/firebaseData.js';
+import './js/refs.js';

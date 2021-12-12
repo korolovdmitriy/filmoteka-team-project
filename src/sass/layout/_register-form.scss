@@ -1,0 +1,135 @@
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav__list {
+    display: flex;
+    align-items: center;
+  }
+  .nav__item {
+    margin-right: 39px;
+  }
+  .header__btn {
+    width: 66px;
+    height: 22px;
+    padding: 3px 10px;
+    border-radius: 5px;
+    border-color: #fff;
+    font-family: inherit;
+    font-size: 10px;
+    line-height: .75;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: initial;
+    cursor: pointer;
+    transition: background-color .25s cubic-bezier(.4,0,.2,1),box-shadow .25s cubic-bezier(.4,0,.2,1);
+  }
+  
+  .login-page {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    background: rgba(0,0,0,.2);
+  }
+  
+  .is-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+  
+  .modal-form {
+    position: relative;
+    z-index: 2;
+    background: #fff;
+    max-width: 360px;
+    margin: 100px auto;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%), 0 5px 5px 0 rgb(0 0 0 / 24%);
+  }
+  
+  .close-icon-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  .close-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .modal-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  
+  .modal-form button, .modal-form input {
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .modal-form input {
+    background: #f2f2f2;
+    margin: 0 0 15px;
+    box-sizing: border-box;
+  }
+  
+  .modal-form button, .modal-form input {
+    outline: 0;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    font-size: 14px;
+  }
+  .modal-form button {
+    text-transform: uppercase;
+    background: #fff;
+    color: #ff6b08;
+    -webkit-transition: all .3 ease;
+    transition: all .3 ease;
+    cursor: pointer;
+  }
+
+  .modal-form button:hover,
+.modal-form button:active,
+.modal-form button:focus {
+  background:#ff6b08;
+  color: #ffffff;
+}
+  .modal-form .message {
+    margin: 15px 0 0;
+    color: #7c7a7a;
+    font-size: 12px;
+  }
+  
+  .modal-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  
+  .modal-form .message a {
+    color: #ff6b08;
+    text-decoration: underline;
+  }
+  
+  .modal-form .register-form {
+    display: none;
+  }
