@@ -1,7 +1,10 @@
 .films {
   padding-top: 20px;
   padding-bottom: 40px;
+// <<<<<<< film-card-js-modal
+// =======
 
+// >>>>>>> main
   @include tablet {
     padding-top: 60px;
     padding-bottom: 50px;
@@ -61,13 +64,11 @@
   font-weight: 500;
 }
 .rating {
-  width: 36px;
-  height: 16px;
+  padding: 2px 7px;
   background-color: #ff6b08;
   color: white;
   border-radius: 5px;
   margin-left: 10px;
-  text-align: center;
 }
 @media screen and (min-width: 768px) {
   .film__img {
