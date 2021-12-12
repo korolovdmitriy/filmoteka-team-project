@@ -12,14 +12,13 @@ refs.heroButton.addEventListener('click', onClick);
 function onClick(e) {
   const queryValue = refs.inputHero.value;
   if (queryValue === '') {
-    return refs.error.classList.remove('.visually-hidden');
+    return (refs.error.textContent = 'Search result not successful. Enter the correct movie name');
   }
   refs.error.classList.add('.visually-hidden');
-  console.log(query);
+
   refs.filmsUl.innerHTML = '';
   fetchSearch(1, queryValue).then(data => {
     renderMarkup(data.results);
-    console.log(data.results);
   });
 }
 
