@@ -14,8 +14,9 @@
 
 // ==================LOGO======================
 .logo__text {
-  display: none;
+  font-size: 0;
 }
+
 .logo{
   stroke: #818181;
   &:hover,
@@ -47,6 +48,18 @@
   }
 }
 
+.header-btn{
+  fill: #ffffff;
+  cursor: pointer;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 0.8);
+  &:hover,
+  &:focus {
+    fill: #ff6b08;
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+}
+
 // ====================CURRENT=================
 .current-home::after {
   content: '';
@@ -64,10 +77,16 @@
   height: 3px;
   background: #ff6b08;
 }
+
+.current-btn{
+  content: '';
+  border: none;
+  background-color: #ff6b08;
+  box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+}
 // ===================================TABLET===============================================
 @media screen and (min-width: 768px) {
   .logo__text {
-    display: inline;
     font-weight: 500;
     font-size: 30px;
     line-height: 1.16;
