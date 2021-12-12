@@ -1,4 +1,4 @@
-import { fetchSearch, fetchResults } from './apiService';
+import { fetchSearch } from './apiService';
 
 const refs = {
   inputHero: document.querySelector('.hero__input'),
@@ -17,7 +17,7 @@ function onClick(e) {
   refs.error.classList.add('.visually-hidden');
   console.log(query);
   refs.filmsUl.innerHTML = '';
-  fetchSearch(1, query).then(data => {
+  fetchSearch(1, queryValue).then(data => {
     renderMarkup(data.results);
     console.log(data.results);
   });
