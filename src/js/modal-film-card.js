@@ -23,7 +23,8 @@ fetchMovies(filmId).then(data => {
 });
 
 
-function onFilmCardClick(){
+function onFilmCardClick(event) {
+    console.log(event);
     const instance = basicLightbox.create(`
     <div class="modal">
         <svg class="modal__close-btn">
