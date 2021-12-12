@@ -32,7 +32,7 @@ function renderPopularFilms(film) {
             .join('')}</span>
           &nbsp;|&nbsp;
         </p>
-        <p class="film__info">${release_date}</p>
+        <p class="film__info">${new Date(release_date).getFullYear()}</p>
         <p class="rating">${vote_average}</p>
       </div>
       </li>
