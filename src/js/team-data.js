@@ -1,6 +1,6 @@
 export const teamData= [
   {
-    avatar: "korolov.jpg",
+    avatar: "./images/modal-window-team/team-photo/korolov.jpg",
     name: "Dmitro Korolov",
     position: "Team Lead",
     id: 1,
