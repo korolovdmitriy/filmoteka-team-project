@@ -55,10 +55,10 @@ function onFilmCardClick(event) {
                 <p class="modal__description--about">${descr}</p>
                 <ul class="modal__description--buttons">
                     <li class="modal__description--button">
-                        <button class="modal__description--button-action">add to watched</button>
+                        <button class="modal__description--button-action" data-id="${filmId}">add to watched</button>
                     </li>
                     <li class="modal__description--button">
-                        <button class="modal__description--button-action">add to queue</button>
+                        <button class="modal__description--button-action" data-id="${filmId}>add to queue</button>
                     </li>
             </div>
         </div>
