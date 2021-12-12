@@ -1,8 +1,6 @@
 import * as basicLightbox from 'basiclightbox'
 // import 'basiclightbox/dist/basicLightbox.min.css'
 import axios from 'axios';
-const API_KEY = 'cfdb2a8aab50d545dc8a1d0938de62d8';
-const BASE_URL = 'https://api.themoviedb.org/3';
 import { fetchMovies } from './apiService';
 
 
@@ -12,7 +10,7 @@ cardEl.addEventListener('click', onFilmCardClick);
 
 let genre, popularity, original, title, post, descr, vote, votes;
  
-const filmId = 580489;
+let filmId = 580489;
 fetchMovies(filmId).then(data => {
     title = data.title;
     post = data.poster_path;
@@ -21,8 +19,7 @@ fetchMovies(filmId).then(data => {
     descr = data.overview;
     original = data.original_title;
     popularity = data.popularity;
-    genre = data.genres.map(el => el.name).join(', ');
-    console.log(data.backdrop_path);
+    genre = data.genres.map(el => el.name).join(', ');   
 });
 
 
@@ -32,7 +29,7 @@ function onFilmCardClick(){
         <svg class="modal__close-btn">
             <use href="../images/sprite.svg#icon-x_cross" class="modal_close-btn--cross" width="14px" height="14px"></use>
         </svg>
-        <img src="${post}" class="modal__poster" width="396" height="478">
+        <img src="https://image.tmdb.org/t/p/w500/${post}" class="modal__poster" width="396" height="478">
         
         <div class="modal__parameters">
             <div class="modal__parameters--information">
@@ -83,21 +80,3 @@ function onFilmCardClick(){
     instance.show();
 }
 
-// function getFilm(movieId) {
-//     const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
-//     return axios.get(url);}
-
-//     getFilm(35384).then(res=>{
-//         // console.log(res.data);
-//         const title = res.data.title;
-//         const post = res.data.poster_path;
-//         const vote = res.data.vote_average;
-//         const votes = res.data.vote_count;
-//         const descr = res.data.overview;
-//         const original = res.data.original_title;
-//         const popularity = res.data.popularity;
-//         const genre = res.data.genres.map(el => el.name).join(', ');
-//         // onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes);
-        
-//         })
-        
