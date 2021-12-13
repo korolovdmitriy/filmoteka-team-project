@@ -4,4 +4,5 @@ import './js/modal-window-team.js';
 import './js/spiner';
 import './js/pagination.js';
 import './js/popular';
+import './js/getSearchFilm.js';
 // import './js/firebaseGoogAuth';
