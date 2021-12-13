@@ -12,12 +12,12 @@ refs.heroButton.addEventListener('click', onClick);
 
 function onClick(e) {
   e.preventDefault();
-  refs.inputHero.placeholder = 'Поиск фильмов';
   const queryValue = refs.inputHero.value;
   if (queryValue === '') {
     refs.inputHero.value = '';
     refs.filmsUl.innerHTML = '';
-    return (refs.inputHero.placeholder = 'Введите корректный запрос');
+    return (refs.error.textContent =
+      'Search result not successful. Enter the correct movie name and ');
   }
 
   fetchSearch(1, queryValue).then(data => {
@@ -25,10 +25,11 @@ function onClick(e) {
     if (data.total_results < 1) {
       refs.inputHero.value = '';
       refs.filmsUl.innerHTML = '';
-      refs.inputHero.placeholder = 'Не найдено подходящих результатов';
+      return (refs.error.textContent =
+        'Search result not successful. Enter the correct movie name and ');
     }
     markupFilm(data.results);
   });
-  refs.error.classList.add('visually-hidden');
+
   refs.filmsUl.innerHTML = '';
 }
