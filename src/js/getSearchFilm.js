@@ -1,6 +1,6 @@
 import { fetchSearch } from './apiService';
 import { markupFilm } from './renderFilm';
-import './pagination.js';
+
 const refs = {
   inputHero: document.querySelector('.hero__input'),
   filmsUl: document.querySelector('.films__list'),
