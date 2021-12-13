@@ -4,26 +4,40 @@ import axios from 'axios';
 import { fetchMovies } from './apiService';
 
 const cardEl = document.querySelector('.films__list');
-cardEl.addEventListener('click', onFilmCardClick);
 
-let genre, popularity, original, title, post, descr, vote, votes;
+let watchedFilms = [];
+let queueFilms = [];
 
-let filmId = 580489;
-fetchMovies(filmId).then(data => {
-  title = data.title;
-  post = data.poster_path;
-  vote = data.vote_average;
-  votes = data.vote_count;
-  descr = data.overview;
-  original = data.original_title;
-  popularity = data.popularity;
-  genre = data.genres.map(el => el.name).join(', ');
+const parsedWatchFilm = JSON.parse(localStorage.getItem('watch'));
+const parsedQueueFilm = JSON.parse(localStorage.getItem('queue'));
+
+if (parsedQueueFilm) {
+  queueFilms = [...parsedQueueFilm];
+}
+
+if (parsedWatchFilm) {
+  watchedFilms = [...parsedWatchFilm];
+}
+
+cardEl.addEventListener('click', event => {
+  let filmId = event.target.closest('.films__item').dataset.id;
+  let genre, popularity, original, title, post, descr, vote, votes;
+
+  fetchMovies(filmId).then(data => {
+    title = data.title;
+    post = data.poster_path;
+    vote = data.vote_average;
+    votes = data.vote_count;
+    descr = data.overview;
+    original = data.original_title;
+    popularity = data.popularity;
+    genre = data.genres.map(el => el.name).join(', ');
+
+    onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId);
+  });
 });
 
-function onFilmCardClick(event) {
-  // console.log(event);
-  const toggleWatched = JSON.parse(localStorage.getItem('watch')).includes(`${filmId}`);
-  const toggleQueue = JSON.parse(localStorage.getItem('queue')).includes(`${filmId}`);
+function onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId) {
   const instance = basicLightbox.create(
     `
     <div class="modal">
@@ -56,16 +70,16 @@ function onFilmCardClick(event) {
                 <ul class="modal__description--buttons">
                     <li class="modal__description--button">
                         <button class="modal__description--button-action addToWatchBtn ${
-                          toggleWatched ? 'active' : null
+                          watchedFilms.includes(filmId) ? 'active' : null
                         }" data-id="${filmId}">${
-      toggleWatched ? 'remove from watched' : 'add to watched'
+      watchedFilms.includes(filmId) ? 'remove from watched' : 'add to watched'
     }</button>
                     </li>
                     <li class="modal__description--button">
                         <button class="modal__description--button-action addToQueueBtn ${
-                          toggleQueue ? 'active' : null
+                          queueFilms.includes(filmId) ? 'active' : null
                         }" data-id="${filmId}">${
-      toggleQueue ? 'remove from queue' : 'add to queue'
+      queueFilms.includes(filmId) ? 'remove from queue' : 'add to queue'
     }</button>
                     </li>
             </div>
@@ -96,31 +110,21 @@ function onFilmCardClick(event) {
 
 function addToLibrary(event) {
   event.preventDefault();
-
-  let watchedFilms = [];
-  let queueFilms = [];
-
-  const parsedWatchFilm = JSON.parse(localStorage.getItem('watch'));
-  const parsedQueueFilm = JSON.parse(localStorage.getItem('queue'));
-
-  if (parsedWatchFilm) {
-    watchedFilms = [...parsedWatchFilm];
-  }
-  if (parsedQueueFilm) {
-    queueFilms = [...parsedQueueFilm];
-  }
+  const filmId = event.target.dataset.id;
+  let isOnWatched = watchedFilms.includes(filmId);
+  let isOnQueue = queueFilms.includes(filmId);
 
   const addToWatchBtn = document.querySelector('.addToWatchBtn');
   const addToQueueBtn = document.querySelector('.addToQueueBtn');
 
   if (event.target === addToWatchBtn) {
-    if (watchedFilms.includes(event.target.dataset.id)) {
-      const uniqueId = watchedFilms.filter(id => id !== event.target.dataset.id);
+    if (isOnWatched) {
+      const uniqueId = watchedFilms.filter(id => id !== filmId);
       localStorage.setItem('watch', JSON.stringify(uniqueId));
       addToWatchBtn.classList.remove('active');
       addToWatchBtn.textContent = 'add to watched';
     } else {
-      watchedFilms.push(event.target.dataset.id);
+      watchedFilms.push(filmId);
       localStorage.setItem('watch', JSON.stringify(watchedFilms));
       addToWatchBtn.classList.add('active');
       addToWatchBtn.textContent = 'remove from watched';
@@ -128,13 +132,13 @@ function addToLibrary(event) {
   }
 
   if (event.target === addToQueueBtn) {
-    if (queueFilms.includes(event.target.dataset.id)) {
-      const uniqueId = queueFilms.filter(id => id !== event.target.dataset.id);
+    if (isOnQueue) {
+      const uniqueId = queueFilms.filter(id => id !== filmId);
       localStorage.setItem('queue', JSON.stringify(uniqueId));
       addToQueueBtn.classList.remove('active');
       addToQueueBtn.textContent = 'add to queue';
     } else {
-      queueFilms.push(event.target.dataset.id);
+      queueFilms.push(filmId);
       localStorage.setItem('queue', JSON.stringify(queueFilms));
       addToQueueBtn.classList.add('active');
       addToQueueBtn.textContent = 'remove from queue';
