@@ -9,7 +9,7 @@ const refs = {
 };
 
 refs.heroButton.addEventListener('click', onClick);
-refs.inputHero.placeholder = 'Поиск фильмов';
+
 function onClick(e) {
   e.preventDefault();
   refs.inputHero.placeholder = 'Поиск фильмов';
