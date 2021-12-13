@@ -4,26 +4,33 @@ import axios from 'axios';
 import { fetchMovies } from './apiService';
 
 const cardEl = document.querySelector('.films__list');
-cardEl.addEventListener('click', onFilmCardClick);
+cardEl.addEventListener('click', event => {
+  let filmId = event.target.closest('.films__item').dataset.id;
+  let genre, popularity, original, title, post, descr, vote, votes;
 
-let genre, popularity, original, title, post, descr, vote, votes;
+  fetchMovies(filmId).then(data => {
+    title = data.title;
+    post = data.poster_path;
+    vote = data.vote_average;
+    votes = data.vote_count;
+    descr = data.overview;
+    original = data.original_title;
+    popularity = data.popularity;
+    genre = data.genres.map(el => el.name).join(', ');
 
-let filmId = 580489;
-fetchMovies(filmId).then(data => {
-  title = data.title;
-  post = data.poster_path;
-  vote = data.vote_average;
-  votes = data.vote_count;
-  descr = data.overview;
-  original = data.original_title;
-  popularity = data.popularity;
-  genre = data.genres.map(el => el.name).join(', ');
+    onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId);
+  });
 });
 
-function onFilmCardClick(event) {
-  // console.log(event);
-  const toggleWatched = JSON.parse(localStorage.getItem('watch')).includes(`${filmId}`);
-  const toggleQueue = JSON.parse(localStorage.getItem('queue')).includes(`${filmId}`);
+function onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId) {
+  let toggleQueue = [];
+  let toggleWatched = [];
+  if (JSON.parse(localStorage.getItem('queue'))) {
+    toggleQueue = [...JSON.parse(localStorage.getItem('queue'))];
+  }
+  if (JSON.parse(localStorage.getItem('watch'))) {
+    toggleWatched = [...JSON.parse(localStorage.getItem('watch'))];
+  }
   const instance = basicLightbox.create(
     `
     <div class="modal">
@@ -56,16 +63,16 @@ function onFilmCardClick(event) {
                 <ul class="modal__description--buttons">
                     <li class="modal__description--button">
                         <button class="modal__description--button-action addToWatchBtn ${
-                          toggleWatched ? 'active' : null
+                          toggleWatched.includes(filmId) ? 'active' : null
                         }" data-id="${filmId}">${
-      toggleWatched ? 'remove from watched' : 'add to watched'
+      toggleWatched.includes(filmId) ? 'remove from watched' : 'add to watched'
     }</button>
                     </li>
                     <li class="modal__description--button">
                         <button class="modal__description--button-action addToQueueBtn ${
-                          toggleQueue ? 'active' : null
+                          toggleQueue.includes(filmId) ? 'active' : null
                         }" data-id="${filmId}">${
-      toggleQueue ? 'remove from queue' : 'add to queue'
+      toggleQueue.includes(filmId) ? 'remove from queue' : 'add to queue'
     }</button>
                     </li>
             </div>
