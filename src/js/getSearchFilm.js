@@ -13,6 +13,7 @@ refs.heroButton.addEventListener('click', onClick);
 function onClick(e) {
   e.preventDefault();
   const queryValue = refs.inputHero.value;
+
   if (queryValue === '') {
     refs.inputHero.value = '';
     refs.filmsUl.innerHTML = '';
@@ -28,6 +29,7 @@ function onClick(e) {
       return (refs.error.textContent =
         'Search result not successful. Enter the correct movie name and ');
     }
+
     markupFilm(data.results);
   });
 
