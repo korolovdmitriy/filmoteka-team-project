@@ -29,55 +29,48 @@
 }
 
 .films__item:hover {
-  box-shadow: 2px 2px 4px 4px rgb(0 0 0 / 50%);
+  box-shadow: 2px 2px 10px 4px rgb(0 0 0 / 30%);
   transition: box-shadow 0.25s linear;
 }
 
 .film__img {
   width: 100%;
-  margin-bottom: 10px;
+  height: 100%;
+  object-fit: cover;
 }
 
 .film__link {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 398px;
+  display: flex;
+  align-items: center;
 }
 .film__name {
   color: black;
-  margin-left: 5px;
   font-size: 12px;
-
   font-weight: 500;
+  width: 100%;
+  margin-bottom: 5px;
 }
 .film__box {
-  margin-left: 5px;
+  margin: 0 5px 10px;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  margin-bottom: 10px;
+  align-items: center;
 }
 .film__info {
-  margin-top: 5px;
   color: #ff6b08;
   font-weight: 500;
 }
 .rating {
-  width: 36px;
-  height: 16px;
+  padding: 2px 7px;
   background-color: #ff6b08;
   color: white;
   border-radius: 5px;
   margin-left: 10px;
-  text-align: center;
-}
-@media screen and (min-width: 768px) {
-  .film__img {
-    width: 294px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .film__img {
-    width: 274px;
-  }
+  min-width: 30px;
 }
 
 .empty-list {

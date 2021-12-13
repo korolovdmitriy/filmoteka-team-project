@@ -1,22 +1,36 @@
-import * as basicLightbox from 'basiclightbox'
+import * as basicLightbox from 'basiclightbox';
 // import 'basiclightbox/dist/basicLightbox.min.css'
 import axios from 'axios';
-const API_KEY = 'cfdb2a8aab50d545dc8a1d0938de62d8';
-const BASE_URL = 'https://api.themoviedb.org/3';
+import { fetchMovies } from './apiService';
 
+const cardEl = document.querySelector('.films__list');
+cardEl.addEventListener('click', onFilmCardClick);
 
+let genre, popularity, original, title, post, descr, vote, votes;
 
-const cardEl = document.querySelector('.films__list')
-cardEl.addEventListener('click', onFilmCardClick)
+let filmId = 580489;
+fetchMovies(filmId).then(data => {
+  title = data.title;
+  post = data.poster_path;
+  vote = data.vote_average;
+  votes = data.vote_count;
+  descr = data.overview;
+  original = data.original_title;
+  popularity = data.popularity;
+  genre = data.genres.map(el => el.name).join(', ');
+});
 
-export function onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes){
-    // event.preventDefault();
-    const instance = basicLightbox.create(`
+function onFilmCardClick(event) {
+  // console.log(event);
+  const toggleWatched = JSON.parse(localStorage.getItem('watch')).includes(`${filmId}`);
+  const toggleQueue = JSON.parse(localStorage.getItem('queue')).includes(`${filmId}`);
+  const instance = basicLightbox.create(
+    `
     <div class="modal">
         <svg class="modal__close-btn">
             <use href="../images/sprite.svg#icon-x_cross" class="modal_close-btn--cross" width="14px" height="14px"></use>
         </svg>
-        <img src="${post}" class="modal__poster" width="396" height="478">
+        <img src="https://image.tmdb.org/t/p/w500/${post}" class="modal__poster" width="396" height="478">
         
         <div class="modal__parameters">
             <div class="modal__parameters--information">
@@ -41,46 +55,89 @@ export function onFilmCardClick(genre, popularity, original, title, post, descr,
                 <p class="modal__description--about">${descr}</p>
                 <ul class="modal__description--buttons">
                     <li class="modal__description--button">
-                        <button class="modal__description--button-action">add to watched</button>
+                        <button class="modal__description--button-action addToWatchBtn ${
+                          toggleWatched ? 'active' : null
+                        }" data-id="${filmId}">${
+      toggleWatched ? 'remove from watched' : 'add to watched'
+    }</button>
                     </li>
                     <li class="modal__description--button">
-                        <button class="modal__description--button-action">add to queue</button>
+                        <button class="modal__description--button-action addToQueueBtn ${
+                          toggleQueue ? 'active' : null
+                        }" data-id="${filmId}">${
+      toggleQueue ? 'remove from queue' : 'add to queue'
+    }</button>
                     </li>
             </div>
         </div>
-    </div>`
-        ,{
-        onShow:(instance)=>{
-            window.addEventListener('keydown', onKeyboardClick)
-            function onKeyboardClick(event){
-                if (event.code === 27){
-                    instance.close();
-                    window.removeEventListener('keydown', onKeyboardClick);
-                }
-            }
-            instance.element().querySelector('.modal__close-btn').addEventListener('click', ()=>{
-                instance.close;
-            });
-        },
-    });
-    instance.show();
+    </div>`,
+    {
+      onShow: instance => {
+        window.addEventListener('keydown', onKeyboardClick);
+        window.addEventListener('click', addToLibrary);
+
+        function onKeyboardClick(event) {
+          if (event.code === 'Escape') {
+            instance.close();
+            window.removeEventListener('keydown', onKeyboardClick);
+          }
+        }
+        instance
+          .element()
+          .querySelector('.modal__close-btn')
+          .addEventListener('click', () => {
+            instance.close;
+          });
+      },
+    },
+  );
+  instance.show();
 }
 
-function getFilm(movieId) {
-    const url = `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
-    return axios.get(url);}
+function addToLibrary(event) {
+  event.preventDefault();
 
-    getFilm(35384).then(res=>{
-        console.log(res.data);
-        const title = res.data.title;
-        const post = res.data.poster_path;
-        const vote = res.data.vote_average;
-        const votes = res.data.vote_count;
-        const descr = res.data.overview;
-        const original = res.data.original_title;
-        const popularity = res.data.popularity;
-        const genre = res.data.genres.map(el => el.name).join(', ');
-        // onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes);
-        
-        })
-        
+  let watchedFilms = [];
+  let queueFilms = [];
+
+  const parsedWatchFilm = JSON.parse(localStorage.getItem('watch'));
+  const parsedQueueFilm = JSON.parse(localStorage.getItem('queue'));
+
+  if (parsedWatchFilm) {
+    watchedFilms = [...parsedWatchFilm];
+  }
+  if (parsedQueueFilm) {
+    queueFilms = [...parsedQueueFilm];
+  }
+
+  const addToWatchBtn = document.querySelector('.addToWatchBtn');
+  const addToQueueBtn = document.querySelector('.addToQueueBtn');
+
+  if (event.target === addToWatchBtn) {
+    if (watchedFilms.includes(event.target.dataset.id)) {
+      const uniqueId = watchedFilms.filter(id => id !== event.target.dataset.id);
+      localStorage.setItem('watch', JSON.stringify(uniqueId));
+      addToWatchBtn.classList.remove('active');
+      addToWatchBtn.textContent = 'add to watched';
+    } else {
+      watchedFilms.push(event.target.dataset.id);
+      localStorage.setItem('watch', JSON.stringify(watchedFilms));
+      addToWatchBtn.classList.add('active');
+      addToWatchBtn.textContent = 'remove from watched';
+    }
+  }
+
+  if (event.target === addToQueueBtn) {
+    if (queueFilms.includes(event.target.dataset.id)) {
+      const uniqueId = queueFilms.filter(id => id !== event.target.dataset.id);
+      localStorage.setItem('queue', JSON.stringify(uniqueId));
+      addToQueueBtn.classList.remove('active');
+      addToQueueBtn.textContent = 'add to queue';
+    } else {
+      queueFilms.push(event.target.dataset.id);
+      localStorage.setItem('queue', JSON.stringify(queueFilms));
+      addToQueueBtn.classList.add('active');
+      addToQueueBtn.textContent = 'remove from queue';
+    }
+  }
+}
