@@ -12,9 +12,9 @@ cardEl.addEventListener('click', event => {
   let filmId;
   const { id, tagName, parentNode } = event.target;
   filmId = tagName === 'DIV' ? id : parentNode.id;
-  // let filmId = event.currentTarget.id;
   if (!id) {
     filmId = tagName === 'DIV' ? id : parentNode.id;
+    console.log(filmId);
   }
 
   fetchMovies(filmId).then(data => {
