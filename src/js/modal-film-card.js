@@ -4,6 +4,7 @@ import axios from 'axios';
 import { fetchMovies } from './apiService';
 
 const cardEl = document.querySelector('.films__list');
+const unknownGenreName = 'Common';
 
 cardEl.addEventListener('click', event => {
   event.preventDefault();
@@ -45,7 +46,9 @@ function onFilmCardClick(genre, popularity, original, title, post, descr, vote, 
         <svg class="modal__close-btn">
             <use href="../images/sprite.svg#icon-x_cross" class="modal_close-btn--cross" width="14px" height="14px"></use>
         </svg>
-        <img src="https://image.tmdb.org/t/p/w500/${post}" class="modal__poster" width="396" height="478">
+        <img src="${
+          post ? 'https://image.tmdb.org/t/p/w500/' + post : 'https://i.ibb.co/4MnLhbM/sorry1.jpg'
+        }" class="modal__poster" width="396" height="478">
         
         <div class="modal__parameters">
             <div class="modal__parameters--information">
@@ -61,7 +64,9 @@ function onFilmCardClick(genre, popularity, original, title, post, descr, vote, 
                         <li class="modal__parameters--value"><span class="modal__parameter--summar">${vote}/</span>${votes}</li>
                         <li class="modal__parameters--value">${popularity}</li>
                         <li class="modal__parameters--value">${original}</li>
-                        <li class="modal__parameters--value">${genre}</li>
+                        <li class="modal__parameters--value">${
+                          genre ? genre : unknownGenreName
+                        }</li>
                     </ul>
                 </div>    
             </div>
