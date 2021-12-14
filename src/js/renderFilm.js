@@ -23,9 +23,13 @@ function convertGenreIds(ids) {
 function markupFilm(films) {
   const markupFilm = films
     .map(({ id, poster_path, title, genre_ids, release_date, vote_average }) => {
+      const imagePath = poster_path
+        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+        : '../images/no-photo.png';
+
       return `<li class="films__item" data-id="${id}">
                 <div class="film__link">
-                    <img class="film__img" src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="${title}" />
+                    <img class="film__img" src="${imagePath}" alt="${title}" />
                 </div>
                 <div class="film__box">
                     <p class="film__name">${title}</p>
