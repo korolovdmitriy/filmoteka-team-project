@@ -4,6 +4,7 @@ import axios from 'axios';
 import { fetchMovies } from './apiService';
 
 const cardEl = document.querySelector('.films__list');
+
 cardEl.addEventListener('click', event => {
   event.preventDefault();
   // let filmId = event.target.closest('.films__item').dataset.id;
