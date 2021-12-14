@@ -59,7 +59,7 @@ const scrollToTop = () => {
 };
 
 // --- рендерим фильмы --- //
-const renderFilms = films => {
+export const renderFilms = films => {
   const list = document.getElementsByClassName('films__list')[0];
   if (!list) {
     return;
@@ -88,7 +88,7 @@ const getFilmItemTemplate = ({
       </div>
       <div id=${id} class="film__box">
         <p id=${id} class="film__info" >
-          <span>${genre_names.slice(0, 2).join(', ')}</span>
+          <span>${genre_names}</span>
           &nbsp;|&nbsp;
         </p>
         <p class="film__info">${release_date}</p>
