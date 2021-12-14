@@ -1,5 +1,5 @@
-.hero__lib-background{
-  background-color:  rgba(21, 0, 3, 0.91);
+.hero__lib-background {
+  background-color: rgba(21, 0, 3, 0.91);
 }
 .hero__lib {
   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
@@ -27,10 +27,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  list-style: none;
 }
-.hero__btn-item:not(:last-child) {
-  margin-right: 19px;
-}
+
 .hero__lib-btn {
   width: 136px;
   height: 44px;
@@ -43,21 +42,31 @@
   line-height: 0.75;
   text-transform: uppercase;
   color: #ffffff;
-  
+
   background-color: transparent;
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
-  &:focus {
+  &:focus,
+  &.active {
     border: none;
+    outline: 0 none;
     background-color: #ff6b08;
     box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+  }
+
+  &:not(:last-child) {
+    margin-right: 19px;
+  }
+
+  &.active {
+    pointer-events: none;
   }
 }
 
 // ===============================================TABLET====================================================
-
 
 @media screen and (min-width: 321px) {
   .hero__lib {
@@ -79,7 +88,6 @@
 }
 
 // ===========================================DESCTOP====================================================
-
 
 @media screen and (min-width: 769px) {
   .hero__lib {
