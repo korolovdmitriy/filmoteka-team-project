@@ -17,8 +17,7 @@ function onClick(e) {
   if (queryValue === '') {
     refs.inputHero.value = '';
     refs.filmsUl.innerHTML = '';
-    return (refs.error.textContent =
-      'Search result not successful. Enter the correct movie name and ');
+    return (refs.error.textContent = 'Enter text in the text field');
   }
 
   fetchSearch(1, queryValue).then(data => {
