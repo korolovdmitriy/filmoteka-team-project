@@ -6,8 +6,16 @@ import { fetchMovies } from './apiService';
 const cardEl = document.querySelector('.films__list');
 
 cardEl.addEventListener('click', event => {
-  let filmId = event.target.closest('.films__item').dataset.id;
+  event.preventDefault();
+  // let filmId = event.target.closest('.films__item').dataset.id;
   let genre, popularity, original, title, post, descr, vote, votes;
+  let filmId;
+  const { id, tagName, parentNode } = event.target;
+  filmId = tagName === 'DIV' ? id : parentNode.id;
+  if (!id) {
+    filmId = tagName === 'DIV' ? id : parentNode.id;
+    console.log(filmId);
+  }
 
   fetchMovies(filmId).then(data => {
     title = data.title;
@@ -18,7 +26,6 @@ cardEl.addEventListener('click', event => {
     original = data.original_title;
     popularity = data.popularity;
     genre = data.genres.map(el => el.name).join(', ');
-
     onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId);
   });
 });
