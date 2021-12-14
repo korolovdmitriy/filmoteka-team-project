@@ -40,19 +40,18 @@
 }
 
 .film__link {
-  margin-bottom: 15px;
   border-radius: 5px;
-  // overflow: hidden;
-  height: 410px;
-  // display: flex;
-  // align-items: center;
+  overflow: hidden;
+  height: 400px;
+  display: flex;
+  align-items: center;
 }
 .film__name {
   color: black;
   font-size: 12px;
   font-weight: 500;
   width: 100%;
-  padding: 5px 0 5px 5px;
+  padding: 5px 0;
 }
 .film__box {
   padding-top: 5px;
@@ -73,6 +72,8 @@
   margin-left: 10px;
   min-width: 30px;
   text-align: center;
+  display: inline-block;
+  line-height: 1;
 }
 
 .empty-list {

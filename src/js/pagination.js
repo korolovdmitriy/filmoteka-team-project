@@ -84,14 +84,14 @@ const getFilmItemTemplate = ({
              ? 'https://image.tmdb.org/t/p/w500/' + poster_path
              : 'https://i.ibb.co/4MnLhbM/sorry1.jpg'
          }" alt="123">
-        <p class="film__name">${title}</p>
       </div>
       <div id=${id} class="film__box">
+        <p class="film__name">${title}</p>
         <p id=${id} class="film__info" >
           <span>${genre_names.slice(0, 2).join(', ')}</span>
           &nbsp;|&nbsp;
+          ${new Date(release_date).getFullYear()}
         </p>
-        <p class="film__info">${release_date}</p>
         <p class="rating">${vote_average}</p>
       </div>
     </a>

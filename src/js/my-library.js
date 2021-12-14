@@ -45,11 +45,16 @@ function getFilmsFromLS(type) {
 }
 
 function markupFilm({ id, poster_path, title, genres, release_date, vote_average }) {
-  return `<li class="films__item" data-id="${id}">
-                <div class="film__link">
-                    <img class="film__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${title}" />
+  return `<li id="${id}" class="films__item">
+            <a href="#" class="result__link">
+                <div id=${id} class="film__link">
+                    <img class="film__img" src="${
+                      poster_path
+                        ? 'https://image.tmdb.org/t/p/w500/' + poster_path
+                        : 'https://i.ibb.co/4MnLhbM/sorry1.jpg'
+                    }" alt="${title}" />
                 </div>
-                <div class="film__box">
+                <div id=${id} class="film__box">
                     <p class="film__name">${title}</p>
                     <p class="film__info">
                         <span>${genres
@@ -61,5 +66,6 @@ function markupFilm({ id, poster_path, title, genres, release_date, vote_average
                     </p>
                     <p class="rating">${vote_average}</p>
                 </div>
+                </a>
             </li>`;
 }
