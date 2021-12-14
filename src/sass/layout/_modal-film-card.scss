@@ -11,6 +11,8 @@
   position: fixed;
   top: 50px;
   left: 30px;
+  border-radius: 5px;
+  overflow: hidden;
   // justify-content: start;
 }
 .modal__parameters {
@@ -51,6 +53,9 @@
     font-weight: 500;
     text-transform: uppercase;
   }
+}
+.modal__parameter--summar {
+  margin-left: 0;
 }
 .modal__description {
   position: relative;
@@ -107,6 +112,6 @@
 }
 
 .result__link {
-    display: block;
-    height: 100%;
+  display: block;
+  height: 100%;
 }
