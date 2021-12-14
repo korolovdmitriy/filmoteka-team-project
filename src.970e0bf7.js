@@ -93,4 +93,4 @@ var t=arguments[3];function e(t){return(e="function"==typeof Symbol&&"symbol"==t
 },{"./apiService":"eQwa","./renderFilm":"R1cK"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/modal-film-card.js"),require("./js/modal-window-team.js"),require("./js/spiner"),require("./js/pagination.js"),require("./js/popular"),require("./js/getSearchFilm.js");
 },{"./sass/main.scss":"clu1","./js/modal-film-card.js":"MzUv","./js/modal-window-team.js":"OctN","./js/spiner":"eYPI","./js/pagination.js":"o8lo","./js/popular":"gm7x","./js/getSearchFilm.js":"DWoy"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-team-project/src.399a20d3.js.map
+//# sourceMappingURL=/filmoteka-team-project/src.970e0bf7.js.map

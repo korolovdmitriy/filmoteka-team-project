@@ -79,4 +79,4 @@ function e(){const e=document.querySelector(".films"),t=document.createElement("
 },{"./apiService":"eQwa"}],"I9BA":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/modal-film-card.js"),require("./js/modal-window-team.js"),require("./js/spiner"),require("./js/my-library");
 },{"./sass/main.scss":"clu1","./js/modal-film-card.js":"MzUv","./js/modal-window-team.js":"OctN","./js/spiner":"eYPI","./js/my-library":"L1LD"}]},{},["I9BA"], null)
-//# sourceMappingURL=/filmoteka-team-project/library.f2a5545c.js.map
+//# sourceMappingURL=/filmoteka-team-project/library.0552d305.js.map
