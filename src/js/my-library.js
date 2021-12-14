@@ -63,14 +63,3 @@ function markupFilm({ id, poster_path, title, genres, release_date, vote_average
                 </div>
             </li>`;
 }
-
-// function setWatchedFilmToLS(data) {
-//   localStorage.setItem(WATCHED_FILMS, JSON.stringify([...data]));
-// }
-
-// function setQueueFilmToLS(data) {
-//   localStorage.setItem(QUEUE_FILMS, JSON.stringify([...data]));
-// }
-
-// setWatchedFilmToLS(['580489', '770254', '634649']);
-// setQueueFilmToLS(['585221', '770254']);
