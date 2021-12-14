@@ -1,13 +1,19 @@
 import Pagination from 'tui-pagination';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
+import { fetchResults, fetchGenres } from './apiService';
 
-const container = document.getElementById('pagination');
+const unknownGenreName = 'Common';
+const paginationContainer = document.getElementById('pagination');
 
-const options = {
+const params = new URLSearchParams(document.location.search);
+const page = parseInt(params.get('page')) || 1;
+
+const paginationOptions = {
   totalItems: 20000,
-  itemsPerPage: 21,
+  itemsPerPage: 20,
   visiblePages: 5,
-  page: 1,
+  currentPage: page,
+  page: page,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -29,28 +35,104 @@ const options = {
   },
 };
 
-const pagination = new Pagination(container, options);
+const pagination = new Pagination(paginationContainer, paginationOptions);
 
-const page = pagination.getCurrentPage();
-fetchImages(page).then(data => {
-  pagination.reset(data.total);
-  renderImages(data.images);
-});
+let genres = [];
 
-pagination.on('afterMove', event => {
+pagination.on('afterMove', async event => {
   const currentPage = event.page;
-  fetchImages(currentPage).then(data => renderImages(data.images));
+  const params = new URLSearchParams(window.location.search);
+  params.set('page', currentPage);
+  window.history.replaceState({}, '', decodeURIComponent(`${window.location.pathname}?${params}`));
+  const filmsPagination = await getFilmsByPage(currentPage);
+  const films = addGenreNamesToFilm(filmsPagination.results);
+  renderFilms(films);
+  scrollToTop();
 });
 
-function fetchImages(page) {
-  return fetch(
-    `https://pixabay.com/api/?key=4823621-792051e21e56534e6ae2e472f&q=sun&page=${page}&per_page=20`,
-  )
-    .then(res => res.json())
-    .then(data => ({ images: data.hits, total: data.totalHits }));
-}
+// --- пролистывание вверх--- //
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+};
 
-function renderImages(images) {
-  console.log('RENDER');
-  console.log(images);
-}
+// --- рендерим фильмы --- //
+const renderFilms = films => {
+  const list = document.getElementsByClassName('films__list')[0];
+  if (!list) {
+    return;
+  }
+  list.innerHTML = films.map(getFilmItemTemplate).join('');
+};
+
+// --- получаем шаблон элемента фильма --- ? poster_path : (document.getElementById('img').src = '../images/sorry.jpg')//
+const getFilmItemTemplate = ({
+  id,
+  poster_path,
+  title,
+  genre_names,
+  release_date,
+  vote_average,
+}) => {
+  return `<li class="films__item">
+    <a href="#" class="result__link">
+      <div id=${id} class="film__link">
+         <img id="img" class="film__img" src="${
+           poster_path
+             ? 'https://image.tmdb.org/t/p/w500/' + poster_path
+             : 'https://i.ibb.co/4MnLhbM/sorry1.jpg'
+         }" alt="123">
+        <p class="film__name">${title}</p>
+      </div>
+      <div id=${id} class="film__box">
+        <p id=${id} class="film__info" >
+          <span>${genre_names.slice(0, 2).join(', ')}</span>
+          &nbsp;|&nbsp;
+        </p>
+        <p class="film__info">${release_date}</p>
+        <p class="rating">${vote_average}</p>
+      </div>
+    </a>
+    </li>`;
+};
+
+// --- добавление жанров к фильму --- //
+const addGenreNamesToFilm = films => {
+  return films.map(film => ({
+    ...film,
+    genre_names: getFilmGenreNames(film),
+  }));
+};
+
+// --- получаем названия жанров фильмов --- //
+const getFilmGenreNames = film => {
+  const genreNames = film.genre_ids.map(genreId => genres[genreId].name);
+  return genreNames.length ? genreNames : [unknownGenreName];
+};
+
+// --- получаем фильмы по страницам --- //
+const getFilmsByPage = async page => {
+  return await fetchResults(page);
+};
+
+// --- запускаем функцию котороя рендерит первую страницу --- //
+const initFirstPageFilms = async () => {
+  await getAllGenres();
+  const firtsPageFilms = await getFilmsByPage(page);
+  renderFilms(addGenreNamesToFilm(firtsPageFilms.results));
+};
+
+// --- трансформация жанров в обьект --- //
+const getAllGenres = async () => {
+  await fetchGenres().then(data => {
+    data.genres;
+    genres = data.genres.reduce((result, genre) => {
+      result[genre.id] = genre;
+      return result;
+    }, {});
+  });
+};
+
+initFirstPageFilms();

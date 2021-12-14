@@ -40,21 +40,22 @@
 }
 
 .film__link {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 5px;
-  overflow: hidden;
-  height: 398px;
-  display: flex;
-  align-items: center;
+  // overflow: hidden;
+  height: 410px;
+  // display: flex;
+  // align-items: center;
 }
 .film__name {
   color: black;
   font-size: 12px;
   font-weight: 500;
   width: 100%;
-  margin-bottom: 5px;
+  padding: 5px 0 5px 5px;
 }
 .film__box {
+  padding-top: 5px;
   margin: 0 5px 10px;
   display: flex;
   flex-wrap: wrap;
