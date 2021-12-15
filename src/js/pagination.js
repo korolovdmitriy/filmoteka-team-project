@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
 import { fetchResults, fetchGenres } from './apiService';
 
+
 const unknownGenreName = 'Common';
 const paginationContainer = document.getElementById('pagination');
 
@@ -64,7 +65,9 @@ export const renderFilms = films => {
   if (!list) {
     return;
   }
+
   list.innerHTML = films.map(getFilmItemTemplate).join('');
+
 };
 
 // --- получаем шаблон элемента фильма --- //
