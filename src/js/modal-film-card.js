@@ -1,7 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 // import 'basiclightbox/dist/basicLightbox.min.css'
 import axios from 'axios';
-import { fetchMovies } from './apiService';
+import { fetchMovies, getMultipleMovies } from './apiService';
 import { markupFilm } from './my-library';
 
 const cardEl = document.querySelector('.films__list');
@@ -171,10 +171,8 @@ function rerenderMyLibraryFilms(ids, type) {
   if (libraryFlag) {
     cardEl.innerHTML = '';
     if (ids.length > 0) {
-      ids.forEach(el =>
-        fetchMovies(el).then(res => {
-          cardEl.insertAdjacentHTML('afterbegin', markupFilm(res));
-        }),
+      getMultipleMovies(ids).then(res =>
+        res.map(film => cardEl.insertAdjacentHTML('afterbegin', markupFilm(film.data))),
       );
     } else {
       emptyList.innerHTML = `My ${type} films library is empty`;

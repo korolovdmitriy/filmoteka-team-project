@@ -1,4 +1,4 @@
-import { fetchMovies } from './apiService';
+import { getMultipleMovies } from './apiService';
 
 const WATCHED_FILMS = 'watch';
 const QUEUE_FILMS = 'queue';
@@ -34,10 +34,8 @@ function getFilmsFromLS(type) {
   if (dataFromLS) {
     if (dataFromLS.length > 0) {
       emptyList.innerHTML = '';
-      dataFromLS.forEach(el =>
-        fetchMovies(el).then(res => {
-          filmsList.insertAdjacentHTML('afterbegin', markupFilm(res));
-        }),
+      getMultipleMovies(dataFromLS).then(res =>
+        res.map(film => filmsList.insertAdjacentHTML('afterbegin', markupFilm(film.data))),
       );
     } else {
       emptyList.textContent = `My ${type} films library is empty`;
