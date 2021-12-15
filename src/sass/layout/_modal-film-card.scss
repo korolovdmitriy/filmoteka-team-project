@@ -11,6 +11,8 @@
   position: fixed;
   top: 50px;
   left: 30px;
+  border-radius: 5px;
+  overflow: hidden;
   // justify-content: start;
 }
 .modal__parameters {
@@ -52,6 +54,9 @@
     color: var(--primary-text-color);
     text-transform: uppercase;
   }
+}
+.modal__parameter--summar {
+  margin-left: 0;
 }
 .modal__description {
   position: relative;
@@ -106,4 +111,9 @@
   color: var(--secondary-text-color);
   background-color: #ff6b01;
   border-color: #ff6b01;
+}
+
+.result__link {
+  display: block;
+  height: 100%;
 }

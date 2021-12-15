@@ -16,3 +16,9 @@ function toggleModal(event) {
     bodyNode.style.removeProperty('overflow');
   }
 }
+
+bodyNode.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    teamModal.classList.toggle('is-hidden');
+  }
+});

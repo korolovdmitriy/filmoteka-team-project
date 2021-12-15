@@ -1,8 +1,39 @@
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-    color: var( --secondary-text-color);
-    background: #ff6b08;
-    border-color: #ff6b08;
-    border-radius: 5px;
-    cursor: default;
+  color: #fff !important;
+  background: #ff6b08 !important;
+  border-color: #ff6b08 !important;
+  border-radius: 5px !important;
+  cursor: default !important;
+  min-width: 30px !important;
+  width: auto !important;
+  padding: 8px 5px 6px !important;
+}
+
+.tui-pagination .tui-is-selected,
+.tui-pagination strong:hover {
+  background: #ff6b08 !important;
+  color: #fff !important;
+}
+
+.tui-page-btn {
+  border: none !important;
+  font-size: 14px !important;
+}
+
+.tui-page-btn:hover {
+  background-color: #fff !important;
+  color: #ff6b08 !important;
+}
+
+.tui-first,
+.tui-prev,
+.tui-next,
+.tui-last {
+  &:not(.tui-is-disabled) {
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
 }

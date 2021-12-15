@@ -40,10 +40,9 @@
 }
 
 .film__link {
-  margin-bottom: 10px;
   border-radius: 5px;
   overflow: hidden;
-  height: 398px;
+  height: 400px;
   display: flex;
   align-items: center;
 }
@@ -52,9 +51,13 @@
   font-size: 12px;
   font-weight: 500;
   width: 100%;
-  margin-bottom: 5px;
+  padding: 5px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .film__box {
+  padding-top: 5px;
   margin: 0 5px 10px;
   display: flex;
   flex-wrap: wrap;
@@ -63,6 +66,16 @@
 .film__info {
   color: #ff6b08;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.film__genres {
+  display: inline-block;
+  max-width: 67%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .rating {
   padding: 2px 7px;
@@ -72,6 +85,8 @@
   margin-left: 10px;
   min-width: 30px;
   text-align: center;
+  display: inline-block;
+  line-height: 1;
 }
 
 .empty-list {
