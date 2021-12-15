@@ -45,8 +45,7 @@ pagination.on('afterMove', async event => {
   params.set('page', currentPage);
   window.history.replaceState({}, '', decodeURIComponent(`${window.location.pathname}?${params}`));
   const filmsPagination = await getFilmsByPage(currentPage);
-  const films = addGenreNamesToFilm(filmsPagination.results);
-  renderFilms(films);
+  renderFilms(filmsPagination.results);
   scrollToTop();
 });
 
@@ -60,6 +59,7 @@ const scrollToTop = () => {
 
 // --- рендерим фильмы --- //
 export const renderFilms = films => {
+  films = addGenreNamesToFilm(films);
   const list = document.getElementsByClassName('films__list')[0];
   if (!list) {
     return;
@@ -67,7 +67,7 @@ export const renderFilms = films => {
   list.innerHTML = films.map(getFilmItemTemplate).join('');
 };
 
-// --- получаем шаблон элемента фильма --- ? poster_path : (document.getElementById('img').src = '../images/sorry.jpg')//
+// --- получаем шаблон элемента фильма --- //
 const getFilmItemTemplate = ({
   id,
   poster_path,
@@ -88,11 +88,11 @@ const getFilmItemTemplate = ({
       <div id=${id} class="film__box">
         <p class="film__name">${title}</p>
         <p id=${id} class="film__info" >
-          <span>${genre_names}</span>
+          <span class="film__genres">${genre_names.slice(0, 2).join(', ')}</span>
           &nbsp;|&nbsp;
           ${new Date(release_date).getFullYear()}
+          <span class="rating">${vote_average}</span>
         </p>
-        <p class="rating">${vote_average}</p>
       </div>
     </a>
     </li>`;
@@ -121,7 +121,7 @@ const getFilmsByPage = async page => {
 const initFirstPageFilms = async () => {
   await getAllGenres();
   const firtsPageFilms = await getFilmsByPage(page);
-  renderFilms(addGenreNamesToFilm(firtsPageFilms.results));
+  renderFilms(firtsPageFilms.results);
 };
 
 // --- трансформация жанров в обьект --- //
