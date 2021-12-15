@@ -5,4 +5,5 @@ import './js/spiner';
 import './js/pagination.js';
 import './js/popular';
 import './js/getSearchFilm.js';
+import './js/scrollTop';
 // import './js/firebaseGoogAuth';
