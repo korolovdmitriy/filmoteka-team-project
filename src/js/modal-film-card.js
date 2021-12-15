@@ -26,7 +26,7 @@ cardEl.addEventListener('click', event => {
     descr = data.overview;
     original = data.original_title;
     popularity = data.popularity;
-    genre = data.genres.map(el => el.name).join(', ');
+    genre = data.genres.map(el => el.name).slice(0, 2).join(', ');
     onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId);
   });
 });
@@ -43,12 +43,10 @@ function onFilmCardClick(genre, popularity, original, title, post, descr, vote, 
   const instance = basicLightbox.create(
     `
     <div class="modal">
-        <svg class="modal__close-btn">
-            <use href="../images/sprite.svg#icon-x_cross" class="modal_close-btn--cross" width="14px" height="14px"></use>
-        </svg>
-        <img src="${
+    <span class="modal__close-btn"></span>
+        <div class="modal__poster--wrapper"><img src="${
           post ? 'https://image.tmdb.org/t/p/w500/' + post : 'https://i.ibb.co/4MnLhbM/sorry1.jpg'
-        }" class="modal__poster" width="396" height="478">
+        }" class="modal__poster" ></div>
         
         <div class="modal__parameters">
             <div class="modal__parameters--information">
@@ -56,18 +54,22 @@ function onFilmCardClick(genre, popularity, original, title, post, descr, vote, 
                 <div class="modal__parameters--data">
                     <ul class="modal__parameters--list">
                         <li class="modal__parameters--list-name">Vote / Votes</li>
+                        <li class="modal__parameters--value"><span class="modal__parameters--value-summar">${vote}</span>  / <span class="modal__parameters--value-slash">${votes}</span></li>
+                    </ul>
+                    <ul class="modal__parameters--list">
                         <li class="modal__parameters--list-name">Popularity</li>
+                        <li class="modal__parameters--value">${popularity.toFixed(1)}</li>
+                    </ul>
+                    <ul class="modal__parameters--list">
                         <li class="modal__parameters--list-name">Original Title</li>
+                        <li class="modal__parameters--value upper">${original}</li>
+                    </ul>
+                    <ul class="modal__parameters--list">
                         <li class="modal__parameters--list-name">Genre</li>
+                        <li class="modal__parameters--value">
+                        ${genre ? genre : unknownGenreName}</li>
                     </ul>
-                        <ul class="modal__parameters--list-status">
-                        <li class="modal__parameters--value"><span class="modal__parameter--summar">${vote}/</span>${votes}</li>
-                        <li class="modal__parameters--value">${popularity}</li>
-                        <li class="modal__parameters--value">${original}</li>
-                        <li class="modal__parameters--value">${
-                          genre ? genre : unknownGenreName
-                        }</li>
-                    </ul>
+                        
                 </div>    
             </div>
             <div class="modal__description">
