@@ -35,4 +35,18 @@ async function fetchGenres() {
 }
 // fetchGenres().then(res => console.log(res));
 
+// async function getMultipleMovies() {
+//   const urlSearch = `${BASE_URL}movie/${id}?api_key=${API_KEY}`;
+//   const movies = JSON.parse(localStorage.getItem('watched'));
+//   return Promise.all(
+//     movies
+//       .map(id => axios(urlSearch))
+//       .then(results => {
+//         console.log(results);
+//       }),
+//   );
+// }
+
+// getMultipleMovies();
+
 export { fetchResults, fetchSearch, fetchMovies, fetchGenres };

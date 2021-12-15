@@ -177,7 +177,7 @@ function rerenderMyLibraryFilms(ids, type) {
         }),
       );
     } else {
-      emptyList.textContent = `My ${type} films library is empty`;
+      emptyList.innerHTML = `My ${type} films library is empty`;
     }
   }
 }
