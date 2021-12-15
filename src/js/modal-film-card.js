@@ -2,8 +2,11 @@ import * as basicLightbox from 'basiclightbox';
 // import 'basiclightbox/dist/basicLightbox.min.css'
 import axios from 'axios';
 import { fetchMovies } from './apiService';
+import { markupFilm } from './my-library';
 
 const cardEl = document.querySelector('.films__list');
+const libraryFlag = document.querySelector('.hero__lib-background');
+const emptyList = document.querySelector('.empty-list');
 const unknownGenreName = 'Common';
 
 cardEl.addEventListener('click', event => {
@@ -139,6 +142,7 @@ function addToLibrary(event) {
       localStorage.setItem('watch', JSON.stringify(uniqueId));
       addToWatchBtn.classList.remove('active');
       addToWatchBtn.textContent = 'add to watched';
+      rerenderMyLibraryFilms(uniqueId, 'watched');
     } else {
       watchedFilms.push(event.target.dataset.id);
       localStorage.setItem('watch', JSON.stringify(watchedFilms));
@@ -153,11 +157,27 @@ function addToLibrary(event) {
       localStorage.setItem('queue', JSON.stringify(uniqueId));
       addToQueueBtn.classList.remove('active');
       addToQueueBtn.textContent = 'add to queue';
+      rerenderMyLibraryFilms(uniqueId, 'queue');
     } else {
       queueFilms.push(event.target.dataset.id);
       localStorage.setItem('queue', JSON.stringify(queueFilms));
       addToQueueBtn.classList.add('active');
       addToQueueBtn.textContent = 'remove from queue';
+    }
+  }
+}
+
+function rerenderMyLibraryFilms(ids, type) {
+  if (libraryFlag) {
+    cardEl.innerHTML = '';
+    if (ids.length > 0) {
+      ids.forEach(el =>
+        fetchMovies(el).then(res => {
+          cardEl.insertAdjacentHTML('afterbegin', markupFilm(res));
+        }),
+      );
+    } else {
+      emptyList.textContent = `My ${type} films library is empty`;
     }
   }
 }
