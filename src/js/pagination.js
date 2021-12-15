@@ -128,6 +128,7 @@ const initFirstPageFilms = async () => {
 const getAllGenres = async () => {
   await fetchGenres().then(data => {
     data.genres;
+
     genres = data.genres.reduce((result, genre) => {
       result[genre.id] = genre;
       return result;
