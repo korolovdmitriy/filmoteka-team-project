@@ -88,11 +88,11 @@ const getFilmItemTemplate = ({
       <div id=${id} class="film__box">
         <p class="film__name">${title}</p>
         <p id=${id} class="film__info" >
-          <span>${genre_names}</span>
+          <span class="film__genres">${genre_names}</span>
           &nbsp;|&nbsp;
           ${new Date(release_date).getFullYear()}
+          <span class="rating">${vote_average}</span>
         </p>
-        <p class="rating">${vote_average}</p>
       </div>
     </a>
     </li>`;

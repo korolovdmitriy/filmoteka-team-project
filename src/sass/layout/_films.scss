@@ -52,6 +52,9 @@
   font-weight: 500;
   width: 100%;
   padding: 5px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .film__box {
   padding-top: 5px;
@@ -63,6 +66,16 @@
 .film__info {
   color: #ff6b08;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.film__genres {
+  display: inline-block;
+  max-width: 67%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .rating {
   padding: 2px 7px;

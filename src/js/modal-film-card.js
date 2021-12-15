@@ -115,7 +115,7 @@ function onFilmCardClick(genre, popularity, original, title, post, descr, vote, 
 }
 
 function addToLibrary(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   let watchedFilms = [];
   let queueFilms = [];

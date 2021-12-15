@@ -56,15 +56,15 @@ function markupFilm({ id, poster_path, title, genres, release_date, vote_average
                 </div>
                 <div id=${id} class="film__box">
                     <p class="film__name">${title}</p>
-                    <p class="film__info">
+                    <p id=${id} class="film__info">
                         <span>${genres
                           .map(el => el.name)
                           .slice(0, 2)
                           .join(', ')}</span>
                         &nbsp;|&nbsp;
                         ${new Date(release_date).getFullYear()}
+                        <span class="rating">${vote_average}</span>
                     </p>
-                    <p class="rating">${vote_average}</p>
                 </div>
                 </a>
             </li>`;
