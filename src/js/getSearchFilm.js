@@ -31,6 +31,7 @@ function onClick(e) {
       return (refs.error.textContent =
         'Search result not successful. Enter the correct movie name and ');
     }
+    refs.error.innerHTML = '';
     renderFilms(data.results);
   });
 
