@@ -56,13 +56,13 @@
 }
 
 .text-error{
+position: absolute;
+top: 35px;
+left: 5px;
 font-size: 14px;
 line-height: 16px;
 color: #FF001B;
-margin-top: 22px;
 max-width: 280px;
-margin-right: auto;
-margin-left: auto;
 }
 
 @media screen and (min-width: 321px) {
@@ -70,6 +70,9 @@ margin-left: auto;
     max-width: 768px;
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url(../images/home-tablet.jpg);
+  }
+  .text-error{
+    max-width: 400px;
   }
 }
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 321px),
@@ -79,9 +82,7 @@ margin-left: auto;
     background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url(../images/home-tablet@2x.jpg);
   }
-  .text-error{
-    max-width: 400px;
-  }
+ 
 }
 
 @media screen and (min-width: 769px) {
