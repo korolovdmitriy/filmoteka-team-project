@@ -9,7 +9,7 @@
         <li class="nav__item"><a href="./index.html" class="nav__link current-home">HOME</a></li>
         <li class="nav__item"><a href="./library.html" class="nav__link">MY lIBRARY</a></li>
         <li class="nav__item">
-          <button class="header-btn" id="signin">
+          <button data-modal-open class="header-btn" id="signin">
             <svg width="16" height="16">
               <use href="../src/images/sprite.svg#sing-in"></use>
             </svg>
@@ -19,3 +19,28 @@
     </nav>
   </div>
 </header>
+<div class="login-page is-hidden" data-modal>
+  <div class="modal-form">
+    <div class="close-icon-container" data-modal-close>
+      <svg width="16" height="16">
+        <use href="../src/images/sprite.svg#icon-x_cross"></use>
+      </svg>
+ </div>
+<form class="register-form" style="display: none;">
+<h2 class="modal-title">Register</h2>
+<input type="email" placeholder="E-mail" id="reg-email" name="regemail">
+<input type="password" placeholder="password" id="reg-password" name="regPaaword" autocomplete="on">
+<button>create</button>
+<p class="login-message message"></p>
+</form>
+<form class="login-form" style="display: block;">
+  <h2 class="modal-title">Login</h2>
+  <input type="email" placeholder="E-mail" id="log-email" name="loginemail">
+  <input type="password" placeholder="Password" id="log-password" name="loginPassword" autocomplete="on">
+  <button id="submit">Login</button>
+  <p class="message create-messege">Not registered?<a href="#">Create an account</a></p>
+
+</form>
+  </div>
+
+</div>
