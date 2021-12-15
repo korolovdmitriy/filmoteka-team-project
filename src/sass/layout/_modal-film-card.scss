@@ -1,7 +1,7 @@
 .modal {
   width: 882px;
   height: 568px;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,7 @@
     display: flex;
   }
   &--list {
-    color: #8c8c8c;
+    color: var( --modal-text-color);
     font-size: 12px;
     font-weight: 500;
     line-height: 1.33;
@@ -40,7 +40,7 @@
   }
   &--value:not(:last-child) {
     margin-bottom: 10px;
-    color: #000000;
+    color: var(--primary-text-color);
     font-size: 12px;
     font-weight: 500;
     line-height: 1.33;
@@ -49,6 +49,7 @@
     top: 50px;
     font-size: 30px;
     font-weight: 500;
+    color: var(--primary-text-color);
     text-transform: uppercase;
   }
 }
@@ -58,7 +59,7 @@
   &--title {
     margin-top: 20px;
     text-transform: uppercase;
-    color: #000000;
+    color: var(--primary-text-color);
     font-size: 12px;
     font-weight: 500;
     line-height: 1.33;
@@ -68,7 +69,7 @@
     margin-top: 10px;
     font-size: 12px;
     font-weight: 500;
-    color: #000000;
+    color: var(--primary-text-color);
     line-height: 1.66;
     word-wrap: break-word;
     overflow-y: auto;
@@ -82,8 +83,9 @@
   }
   &--button-action {
     border: 1px solid;
-    border-color: #000000;
+    border-color: var(--primary-text-color);
     background-color: transparent;
+    color: var(--primary-text-color);
     border-radius: 5px;
     height: 44px;
     width: 136px;
@@ -101,7 +103,7 @@
 }
 
 .active {
-  color: #ffffff;
+  color: var(--secondary-text-color);
   background-color: #ff6b01;
   border-color: #ff6b01;
 }

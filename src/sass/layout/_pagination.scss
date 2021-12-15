@@ -1,6 +1,6 @@
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-    color: #fff;
+    color: var( --secondary-text-color);
     background: #ff6b08;
     border-color: #ff6b08;
     border-radius: 5px;

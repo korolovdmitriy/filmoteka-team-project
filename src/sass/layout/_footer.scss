@@ -1,6 +1,6 @@
 .footer {
   height: 100px;
-  background-color: #f7f7f7;
+  background-color: var(--footer-bg-color);
   margin-top: auto;
 
   @include tablet {
@@ -39,7 +39,7 @@
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 1.14;
-  color: #545454;
+  color: var(--footer-text);
   @include desktop {
     font-size: 16px;
     line-height: 1.9;
@@ -47,7 +47,7 @@
 }
 
 .footer__text-link {
-  color: #545454;
+  color: var(--footer-text);
   text-decoration: underline;
 }
 

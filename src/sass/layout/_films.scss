@@ -29,7 +29,7 @@
 }
 
 .films__item:hover {
-  box-shadow: 2px 2px 10px 4px rgb(0 0 0 / 30%);
+  box-shadow: var(--films-hover);
   transition: box-shadow 0.25s linear;
 }
 
@@ -48,7 +48,7 @@
   align-items: center;
 }
 .film__name {
-  color: black;
+  color: var(--primary-text-color);
   font-size: 12px;
   font-weight: 500;
   width: 100%;
@@ -67,7 +67,7 @@
 .rating {
   padding: 2px 7px;
   background-color: #ff6b08;
-  color: white;
+  color: var(--secondary-text-color);
   border-radius: 5px;
   margin-left: 10px;
   min-width: 30px;
