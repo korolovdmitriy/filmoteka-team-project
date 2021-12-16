@@ -7,7 +7,9 @@
   padding: 25px;
   cursor: pointer;
   border: 3px solid #e0e3e4;
-  transition: border-color 200ms linear;
+  transition: border-color 200ms linear, opacity 200ms linear;
+  opacity: 1;
+  visibility: visible;
 
   &:after,
   &:before {
@@ -37,5 +39,10 @@
     &:before {
       background-color: #ff6b08;
     }
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    visibility: hidden;
   }
 }
