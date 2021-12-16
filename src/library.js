@@ -4,3 +4,4 @@ import './js/modal-window-team.js';
 import './js/spiner';
 import './js/my-library';
 import './js/them.js';
+import './js/scrollTop';
