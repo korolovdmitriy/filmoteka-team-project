@@ -2,7 +2,7 @@
   padding: 50px 30px 40px;
   width: 806px;
   height: 568px;
-  background-color: var(--background-color);
+  background-color: var(--background-color-film);
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -87,19 +87,19 @@
     
   }
   &--value{
-    color:#000000;
+    color:var(--primary-text-color);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
     
     &-summar{
-    color:#fff;
+    color: var(--secondary-text-color);
     background-color: #FF6B01;
     border-radius: 5px;
     padding: 0px 6px;
     }
     &-slash{
-      background-color: #F7F7F7;
+      background-color: var(--secondary-text-color);
       border-radius: 5px;
       padding: 0px 6px;}
     
