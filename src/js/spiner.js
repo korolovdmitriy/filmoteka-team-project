@@ -1,6 +1,3 @@
-
-
-
 function renderSpiner() {
     const film = document.querySelector('.films');
     const spiner = document.createElement('div');
@@ -8,9 +5,11 @@ function renderSpiner() {
     spiner.textContent = 'Loading...';
     film.prepend(spiner);
 
-    setTimeout(() => spiner.remove() ,3000)
+setTimeout(() => spiner.remove(), 400);
 }
-renderSpiner()
 
+
+
+renderSpiner()
 
 

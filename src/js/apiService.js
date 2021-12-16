@@ -35,4 +35,8 @@ async function fetchGenres() {
 }
 // fetchGenres().then(res => console.log(res));
 
-export { fetchResults, fetchSearch, fetchMovies, fetchGenres };
+function getMultipleMovies(movies) {
+  return Promise.all(movies.map(id => axios(`${BASE_URL}movie/${id}?api_key=${API_KEY}`)));
+}
+
+export { fetchResults, fetchSearch, fetchMovies, fetchGenres, getMultipleMovies };
