@@ -1,4 +1,4 @@
-import { fetchMovies } from './apiService';
+import { getMultipleMovies } from './apiService';
 
 const WATCHED_FILMS = 'watch';
 const QUEUE_FILMS = 'queue';
@@ -32,19 +32,21 @@ function getFilmsFromLS(type) {
   const dataFromLS = JSON.parse(localStorage.getItem(type));
 
   if (dataFromLS) {
-    emptyList.innerHTML = '';
-    dataFromLS.forEach(el =>
-      fetchMovies(el).then(res => {
-        filmsList.insertAdjacentHTML('afterbegin', markupFilm(res));
-      }),
-    );
+    if (dataFromLS.length > 0) {
+      emptyList.innerHTML = '';
+      getMultipleMovies(dataFromLS).then(res =>
+        res.map(film => filmsList.insertAdjacentHTML('afterbegin', markupFilm(film.data))),
+      );
+    } else {
+      emptyList.textContent = `My ${type} films library is empty`;
+    }
   } else {
     filmsList.innerHTML = '';
-    emptyList.innerHTML = `My ${type} films library is empty`;
+    emptyList.textContent = `My ${type} films library is empty`;
   }
 }
 
-function markupFilm({ id, poster_path, title, genres, release_date, vote_average }) {
+export function markupFilm({ id, poster_path, title, genres, release_date, vote_average }) {
   return `<li id="${id}" class="films__item">
             <a href="#" class="result__link">
                 <div id=${id} class="film__link">
