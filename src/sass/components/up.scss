@@ -7,7 +7,8 @@
   padding: 25px;
   cursor: pointer;
   border: 3px solid var(--up-background);
-  transition: border-color 200ms linear, opacity 200ms linear;
+  box-shadow: 0 0 10px 3px var(--up-background);
+  transition: border-color 200ms linear, opacity 200ms linear, box-shadow 200ms linear;
   opacity: 1;
   visibility: visible;
   background-color: transparent;
@@ -37,6 +38,7 @@
   &:active,
   &:focus {
     border-color: #ff6b08;
+    box-shadow: 0 0 10px 3px #ff6b08;
 
     &::after,
     &:before {

@@ -55,6 +55,21 @@
   width: inherit;
 }
 
+[placeholder] {
+  &:-moz-placeholder {
+    font-style: normal;
+    color: #ffffff;
+  }
+  &:-ms-input-placeholder {
+    font-style: normal;
+    color: #ffffff;
+  }
+  &::-webkit-input-placeholder {
+    font-style: normal;
+    color: #ffffff;
+  }
+}
+
 .text-error {
   position: absolute;
   top: 35px;
