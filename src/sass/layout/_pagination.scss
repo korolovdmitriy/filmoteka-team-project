@@ -25,8 +25,8 @@
 }
 
 .tui-page-btn:hover {
-  background-color: #fff !important;
   color: #ff6b08 !important;
+  background-color: transparent !important;
 }
 
 .tui-first,
@@ -38,5 +38,4 @@
       transform: scale(1.3);
     }
   }
-
 }
