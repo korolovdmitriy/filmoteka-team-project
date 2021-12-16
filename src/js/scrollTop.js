@@ -1,7 +1,6 @@
 import throttle from 'lodash.throttle';
 
 const up = document.querySelector('#scrollUpLink');
-
 window.addEventListener('DOMContentLoaded', () => {
   up.classList.add('is-hidden');
 });
