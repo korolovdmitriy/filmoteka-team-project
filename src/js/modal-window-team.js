@@ -8,6 +8,7 @@ closeModalBtn.addEventListener('click', toggleModal);
 
 function toggleModal(event) {
   event.preventDefault();
+
   teamModal.classList.toggle('is-hidden');
 
   if (event.target === openModalBtn) {
@@ -19,6 +20,6 @@ function toggleModal(event) {
 
 bodyNode.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
-    teamModal.classList.toggle('is-hidden');
+    teamModal.classList.add('is-hidden');
   }
 });
