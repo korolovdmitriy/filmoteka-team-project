@@ -29,7 +29,10 @@ cardEl.addEventListener('click', event => {
     descr = data.overview;
     original = data.original_title;
     popularity = data.popularity;
-    genre = data.genres.map(el => el.name).slice(0, 2).join(', ');
+    genre = data.genres
+      .map(el => el.name)
+      .slice(0, 2)
+      .join(', ');
     onFilmCardClick(genre, popularity, original, title, post, descr, vote, votes, filmId);
   });
 });
@@ -77,7 +80,7 @@ function onFilmCardClick(genre, popularity, original, title, post, descr, vote, 
             </div>
             <div class="modal__description">
                 <h3 class="modal__description--title">About</h3>
-                <p class="modal__description--about">${descr}</p>
+                <p class="modal__description--about scrollbar">${descr}</p>
                 <ul class="modal__description--buttons">
                     <li class="modal__description--button">
                         <button class="modal__description--button-action addToWatchBtn ${

@@ -8,37 +8,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-button:start:decrement,
-  &::-webkit-scrollbar-button:end:increment {
-    display: none;
-  }
-
-  &::-webkit-scrollbar-track-piece {
-    background: var(--scroll-background);
-    border-radius: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #ff6b08;
-    border-radius: 4px;
-
-    &:hover {
-      background: #ff6b08;
-    }
-
-    &::-webkit-scrollbar-thumb:vertical {
-      height: 40px;
-    }
-    &::-webkit-scrollbar-thumb:horizontal {
-      width: 40px;
-    }
-  }
 }
 
 * {
@@ -73,4 +42,37 @@ ul {
 
 img {
   display: block;
+}
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-button:start:decrement,
+  &::-webkit-scrollbar-button:end:increment {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background: var(--scroll-background);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ff6b08;
+    border-radius: 4px;
+
+    &:hover {
+      background: #ff6b08;
+    }
+
+    &::-webkit-scrollbar-thumb:vertical {
+      height: 40px;
+    }
+    &::-webkit-scrollbar-thumb:horizontal {
+      width: 40px;
+    }
+  }
 }
